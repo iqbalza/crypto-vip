@@ -18,6 +18,14 @@
 		F2C593C22776AB4200D29BA3 /* APIErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593C12776AB4200D29BA3 /* APIErrorResult.swift */; };
 		F2C593C42776AB5A00D29BA3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593C32776AB5A00D29BA3 /* Endpoint.swift */; };
 		F2C593C72776AB9D00D29BA3 /* APIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593C62776AB9D00D29BA3 /* APIErrorResponse.swift */; };
+		F2C593CA2776B44600D29BA3 /* TopListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593C92776B44600D29BA3 /* TopListService.swift */; };
+		F2C593CC2776B45C00D29BA3 /* TopListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593CB2776B45C00D29BA3 /* TopListResponse.swift */; };
+		F2C593D02776B4A000D29BA3 /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593CE2776B4A000D29BA3 /* TopListViewController.swift */; };
+		F2C593D12776B4A000D29BA3 /* TopListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C593CF2776B4A000D29BA3 /* TopListViewController.xib */; };
+		F2C593D32776B4AB00D29BA3 /* TopListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593D22776B4AB00D29BA3 /* TopListInteractor.swift */; };
+		F2C593D52776B4B400D29BA3 /* TopListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593D42776B4B400D29BA3 /* TopListPresenter.swift */; };
+		F2C593D72776B4C500D29BA3 /* TopListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593D62776B4C500D29BA3 /* TopListRouter.swift */; };
+		F2C593DA2776B4F500D29BA3 /* TopListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593D92776B4F500D29BA3 /* TopListModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,14 @@
 		F2C593C12776AB4200D29BA3 /* APIErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResult.swift; sourceTree = "<group>"; };
 		F2C593C32776AB5A00D29BA3 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F2C593C62776AB9D00D29BA3 /* APIErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResponse.swift; sourceTree = "<group>"; };
+		F2C593C92776B44600D29BA3 /* TopListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListService.swift; sourceTree = "<group>"; };
+		F2C593CB2776B45C00D29BA3 /* TopListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListResponse.swift; sourceTree = "<group>"; };
+		F2C593CE2776B4A000D29BA3 /* TopListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListViewController.swift; sourceTree = "<group>"; };
+		F2C593CF2776B4A000D29BA3 /* TopListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopListViewController.xib; sourceTree = "<group>"; };
+		F2C593D22776B4AB00D29BA3 /* TopListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListInteractor.swift; sourceTree = "<group>"; };
+		F2C593D42776B4B400D29BA3 /* TopListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListPresenter.swift; sourceTree = "<group>"; };
+		F2C593D62776B4C500D29BA3 /* TopListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListRouter.swift; sourceTree = "<group>"; };
+		F2C593D92776B4F500D29BA3 /* TopListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +119,8 @@
 		F23460CB2775C8CB00F7B954 /* stockbit-test */ = {
 			isa = PBXGroup;
 			children = (
+				F2C593CD2776B48C00D29BA3 /* Scenes */,
+				F2C593C82776B43500D29BA3 /* Services */,
 				F2C593C52776AB8E00D29BA3 /* Models */,
 				F2C593BE2776AAB300D29BA3 /* API */,
 				F23460CC2775C8CB00F7B954 /* AppDelegate.swift */,
@@ -145,8 +163,38 @@
 			isa = PBXGroup;
 			children = (
 				F2C593C62776AB9D00D29BA3 /* APIErrorResponse.swift */,
+				F2C593CB2776B45C00D29BA3 /* TopListResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F2C593C82776B43500D29BA3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F2C593C92776B44600D29BA3 /* TopListService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F2C593CD2776B48C00D29BA3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F2C593D82776B4E400D29BA3 /* TopList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F2C593D82776B4E400D29BA3 /* TopList */ = {
+			isa = PBXGroup;
+			children = (
+				F2C593CE2776B4A000D29BA3 /* TopListViewController.swift */,
+				F2C593CF2776B4A000D29BA3 /* TopListViewController.xib */,
+				F2C593D22776B4AB00D29BA3 /* TopListInteractor.swift */,
+				F2C593D42776B4B400D29BA3 /* TopListPresenter.swift */,
+				F2C593D62776B4C500D29BA3 /* TopListRouter.swift */,
+				F2C593D92776B4F500D29BA3 /* TopListModels.swift */,
+			);
+			path = TopList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +303,7 @@
 			files = (
 				F23460D92775C8CC00F7B954 /* LaunchScreen.storyboard in Resources */,
 				F23460D62775C8CC00F7B954 /* Assets.xcassets in Resources */,
+				F2C593D12776B4A000D29BA3 /* TopListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,11 +328,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2C593D02776B4A000D29BA3 /* TopListViewController.swift in Sources */,
+				F2C593D52776B4B400D29BA3 /* TopListPresenter.swift in Sources */,
+				F2C593DA2776B4F500D29BA3 /* TopListModels.swift in Sources */,
+				F2C593D72776B4C500D29BA3 /* TopListRouter.swift in Sources */,
 				F2C593C02776AAD000D29BA3 /* APIManager.swift in Sources */,
+				F2C593D32776B4AB00D29BA3 /* TopListInteractor.swift in Sources */,
 				F23460CD2775C8CB00F7B954 /* AppDelegate.swift in Sources */,
 				F2C593C72776AB9D00D29BA3 /* APIErrorResponse.swift in Sources */,
+				F2C593CA2776B44600D29BA3 /* TopListService.swift in Sources */,
 				F2C593C22776AB4200D29BA3 /* APIErrorResult.swift in Sources */,
 				F23460CF2775C8CB00F7B954 /* SceneDelegate.swift in Sources */,
+				F2C593CC2776B45C00D29BA3 /* TopListResponse.swift in Sources */,
 				F2C593C42776AB5A00D29BA3 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
