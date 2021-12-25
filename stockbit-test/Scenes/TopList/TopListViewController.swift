@@ -8,8 +8,7 @@
 import UIKit
 
 protocol TopListDisplayLogic {
-    func successFetchedTopList(viewModel: [TopListModels.FetchTopList.ViewModel.TopList])
-    func errorFetchinTopList(viewModel:TopListModels.FetchTopList.ViewModel)
+    func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel)
 }
 
 class TopListViewController: UIViewController, TopListDisplayLogic {
@@ -22,7 +21,7 @@ class TopListViewController: UIViewController, TopListDisplayLogic {
     
     var interactor: TopListBusinessLogic?
     
-    var topListsViewModel: [TopListModels.FetchTopList.ViewModel.TopList] = []
+    var displayedTopLists: [TopListModels.DisplayedTopList] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,35 +56,41 @@ class TopListViewController: UIViewController, TopListDisplayLogic {
     
    @objc func fetchTopList() {
         interactor?.fetchTopList(request: TopListModels.FetchTopList.Request())
-        //loading
     }
     
-    func successFetchedTopList(viewModel: [TopListModels.FetchTopList.ViewModel.TopList]) {
+    func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel) {
         indicator.stopAnimating()
         refreshControl.endRefreshing()
-        topListsViewModel = viewModel
+        
+        guard let topLists = viewModel.displayedTopLists else {
+            handleError(error: viewModel.error!)
+            return
+        }
+        
+        self.displayedTopLists = topLists
         tableView.reloadData()
     }
     
-    func errorFetchinTopList(viewModel: TopListModels.FetchTopList.ViewModel) {
-        indicator.stopAnimating()
-        refreshControl.endRefreshing()
+    func handleError(error: APIErrorResult){
+        let alert = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+            self.fetchTopList()
+        }))
+        present(alert, animated: true, completion: nil)
     }
+    
+    
 
 }
 extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        topListsViewModel.count
+        displayedTopLists.count
     }
-    
-    
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: TopListTableViewCell.identifier)  as! TopListTableViewCell
-        cell.configure(viewModel: topListsViewModel[indexPath.row])
+        cell.configure(displayedTopList: displayedTopLists[indexPath.row])
         return cell
     }
-    
-    
-    
     
 }

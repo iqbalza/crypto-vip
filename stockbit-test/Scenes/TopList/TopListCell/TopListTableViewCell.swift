@@ -40,18 +40,18 @@ class TopListTableViewCell: UITableViewCell {
     }
     
     
-    func configure(viewModel: TopListModels.FetchTopList.ViewModel.TopList) {
+    func configure(displayedTopList: TopListModels.DisplayedTopList) {
         
-        let isNegative = viewModel.priceChange.sign == .minus
-        var priceChange = String(format:"%.2f", viewModel.priceChange)
+        let isNegative = displayedTopList.priceChange.sign == .minus
+        var priceChange = String(format:"%.2f", displayedTopList.priceChange)
         priceChange = isNegative ? priceChange : "+\(priceChange)"
-        var priceChangePercent = String(format:"%.2f", viewModel.priceChangePercent)
+        var priceChangePercent = String(format:"%.2f", displayedTopList.priceChangePercent)
         priceChangePercent = "%" + priceChangePercent
         let different = "\(priceChange) (\(priceChangePercent))"
         
-        nameLbl.text = viewModel.name
-        fullNameLbl.text = viewModel.fullName
-        priceLbl.text = viewModel.price
+        nameLbl.text = displayedTopList.name
+        fullNameLbl.text = displayedTopList.fullName
+        priceLbl.text = displayedTopList.price
         differentLbl.text = different
         differentLblContainer.backgroundColor = isNegative ? .systemRed : .systemGreen
     }

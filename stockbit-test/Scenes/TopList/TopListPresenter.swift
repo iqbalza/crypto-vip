@@ -16,11 +16,21 @@ final class TopListPresenter: TopListPresentationLogic {
     var viewController: TopListDisplayLogic?
     
     func presentTopList(response: TopListModels.FetchTopList.Response) {
-        let topListViewModel: [TopListModels.FetchTopList.ViewModel.TopList] =  response.toplist!.map { (coin) -> TopListModels.FetchTopList.ViewModel.TopList in
-            
-            
-            
-            let viewModel = TopListModels.FetchTopList.ViewModel.TopList(
+        
+        DispatchQueue.main.async { [weak self] in
+            let viewModel = TopListModels.FetchTopList.ViewModel(error: response.error, displayedTopLists: self?.getDisplayedTopList(topList: response.toplist))
+            self?.viewController?.displayTopLists(viewModel: viewModel)
+        }
+    }
+  
+    func getDisplayedTopList(topList: [TopList]?) -> [TopListModels.DisplayedTopList]? {
+        guard let topList = topList else {
+           return nil
+        }
+        
+        
+        let displayedTopLists: [TopListModels.DisplayedTopList] =  topList.map { (coin) -> TopListModels.DisplayedTopList in
+            let displayedTopList = TopListModels.DisplayedTopList(
                 name: coin.coinInfo.name,
                 fullName: coin.coinInfo.fullName,
                 price: coin.display.usd.price,
@@ -28,11 +38,9 @@ final class TopListPresenter: TopListPresentationLogic {
                 priceChangePercent: coin.raw.usd.changepctHour
                 
             )
-            return viewModel
+            return displayedTopList
         }
-        DispatchQueue.main.async { [weak self] in
-            self?.viewController?.successFetchedTopList(viewModel: topListViewModel)
-        }
+        return displayedTopLists
     }
     
 }

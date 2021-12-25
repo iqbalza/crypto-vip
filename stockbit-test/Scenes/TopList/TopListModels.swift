@@ -8,23 +8,26 @@
 import Foundation
 
 enum TopListModels {
+    
+    struct DisplayedTopList {
+        let name: String
+        let fullName: String
+        let price: String
+        let priceChange: Double
+        let priceChangePercent: Double
+    }
+    
     enum FetchTopList {
         struct Request {
             
         }
         struct Response {
             let toplist: [TopList]?
-            let isError: Bool
-            let message: String?
+            var error: APIErrorResult?
         }
         struct ViewModel {
-            struct TopList {
-                let name: String
-                let fullName: String
-                let price: String
-                let priceChange: Double
-                let priceChangePercent: Double
-            }
+            var error: APIErrorResult?
+            var displayedTopLists: [DisplayedTopList]?
         }
     }
 }

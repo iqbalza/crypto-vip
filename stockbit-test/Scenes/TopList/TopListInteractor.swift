@@ -32,9 +32,9 @@ final class TopListInteractor: TopListBusinessLogic, TopListDataStore {
             switch result {
             case .success(let topListResponse):
                 let toplist = topListResponse.data
-                self?.presenter?.presentTopList(response: TopListModels.FetchTopList.Response(toplist: toplist,isError: false, message: nil))
+                self?.presenter?.presentTopList(response: TopListModels.FetchTopList.Response(toplist: toplist,error: nil))
             case .failure(let error):
-                self?.presenter?.presentTopList(response: TopListModels.FetchTopList.Response(toplist: nil,isError: true, message: error.localizedDescription))
+                self?.presenter?.presentTopList(response: TopListModels.FetchTopList.Response(toplist: nil, error: error))
             }
         }
     }
