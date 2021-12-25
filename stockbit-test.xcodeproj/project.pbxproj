@@ -28,6 +28,7 @@
 		F2C593DA2776B4F500D29BA3 /* TopListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593D92776B4F500D29BA3 /* TopListModels.swift */; };
 		F2C593DE2776BC2E00D29BA3 /* TopListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593DC2776BC2E00D29BA3 /* TopListTableViewCell.swift */; };
 		F2C593DF2776BC2E00D29BA3 /* TopListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C593DD2776BC2E00D29BA3 /* TopListTableViewCell.xib */; };
+		F2C593E1277719F700D29BA3 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593E0277719F700D29BA3 /* Stubs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		F2C593D92776B4F500D29BA3 /* TopListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListModels.swift; sourceTree = "<group>"; };
 		F2C593DC2776BC2E00D29BA3 /* TopListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListTableViewCell.swift; sourceTree = "<group>"; };
 		F2C593DD2776BC2E00D29BA3 /* TopListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopListTableViewCell.xib; sourceTree = "<group>"; };
+		F2C593E0277719F700D29BA3 /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				F23460E32775C8CD00F7B954 /* stockbit_testTests.swift */,
+				F2C593E0277719F700D29BA3 /* Stubs.swift */,
 			);
 			path = "stockbit-testTests";
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F23460E42775C8CD00F7B954 /* stockbit_testTests.swift in Sources */,
+				F2C593E1277719F700D29BA3 /* Stubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

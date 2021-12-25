@@ -13,8 +13,8 @@ enum TopListModels {
         let name: String
         let fullName: String
         let price: String
-        let priceChange: Double
-        let priceChangePercent: Double
+        let priceChange: String
+        let isNegative: Bool
     }
     
     enum FetchTopList {
