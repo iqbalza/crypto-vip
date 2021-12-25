@@ -54,10 +54,6 @@ class TopListTableViewCell: UITableViewCell {
         priceLbl.text = viewModel.price
         differentLbl.text = different
         differentLblContainer.backgroundColor = isNegative ? .systemRed : .systemGreen
-        
-        
-
-        
     }
     
 }

@@ -61,13 +61,13 @@ struct Display: Codable {
 // MARK: - DisplayUsd
 struct DisplayUsd: Codable {
     let price: String
-    let change24Hour: String
-    let changepct24Hour: String
+    let changeHour: String
+    let changepctHour: String
     
     private enum CodingKeys: String, CodingKey {
             case price = "PRICE"
-            case change24Hour = "CHANGE24HOUR"
-            case changepct24Hour = "CHANGEPCT24HOUR"
+            case changeHour = "CHANGEHOUR"
+            case changepctHour = "CHANGEPCTHOUR"
 
          }
 }
@@ -84,12 +84,12 @@ struct Raw: Codable{
 // MARK: - RawUsd
 struct RawUsd:Codable {
     let price: Double
-    let change24Hour: Double
-    let changepct24Hour: Double
+    let changeHour: Double
+    let changepctHour: Double
     
     private enum CodingKeys: String, CodingKey {
             case price = "PRICE"
-            case change24Hour = "CHANGE24HOUR"
-            case changepct24Hour = "CHANGEPCT24HOUR"
+            case changeHour = "CHANGEHOUR"
+            case changepctHour = "CHANGEPCTHOUR"
          }
 }

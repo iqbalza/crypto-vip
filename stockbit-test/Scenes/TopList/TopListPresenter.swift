@@ -24,8 +24,8 @@ final class TopListPresenter: TopListPresentationLogic {
                 name: coin.coinInfo.name,
                 fullName: coin.coinInfo.fullName,
                 price: coin.display.usd.price,
-                priceChange: coin.raw.usd.change24Hour,
-                priceChangePercent: coin.raw.usd.changepct24Hour
+                priceChange: coin.raw.usd.changeHour,
+                priceChangePercent: coin.raw.usd.changepctHour
                 
             )
             return viewModel

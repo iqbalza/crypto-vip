@@ -13,8 +13,12 @@ protocol TopListDisplayLogic {
 }
 
 class TopListViewController: UIViewController, TopListDisplayLogic {
-   
+    
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    var refreshControl = UIRefreshControl()
     
     var interactor: TopListBusinessLogic?
     
@@ -46,20 +50,26 @@ class TopListViewController: UIViewController, TopListDisplayLogic {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib.init(nibName: "TopListTableViewCell", bundle: nil), forCellReuseIdentifier: TopListTableViewCell.identifier)
+        
+        refreshControl.addTarget(self, action: #selector(fetchTopList), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
     
-    func fetchTopList() {
+   @objc func fetchTopList() {
         interactor?.fetchTopList(request: TopListModels.FetchTopList.Request())
         //loading
     }
     
     func successFetchedTopList(viewModel: [TopListModels.FetchTopList.ViewModel.TopList]) {
+        indicator.stopAnimating()
+        refreshControl.endRefreshing()
         topListsViewModel = viewModel
         tableView.reloadData()
     }
     
     func errorFetchinTopList(viewModel: TopListModels.FetchTopList.ViewModel) {
-        
+        indicator.stopAnimating()
+        refreshControl.endRefreshing()
     }
 
 }
