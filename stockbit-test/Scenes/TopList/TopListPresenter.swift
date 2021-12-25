@@ -16,18 +16,23 @@ final class TopListPresenter: TopListPresentationLogic {
     var viewController: TopListDisplayLogic?
     
     func presentTopList(response: TopListModels.FetchTopList.Response) {
-        var topListViewModel: [TopListModels.FetchTopList.ViewModel.TopList] =  response.toplist!.map { (coin) -> TopListModels.FetchTopList.ViewModel.TopList in
+        let topListViewModel: [TopListModels.FetchTopList.ViewModel.TopList] =  response.toplist!.map { (coin) -> TopListModels.FetchTopList.ViewModel.TopList in
+            
+            
+            
             let viewModel = TopListModels.FetchTopList.ViewModel.TopList(
                 name: coin.coinInfo.name,
                 fullName: coin.coinInfo.fullName,
                 price: coin.display.usd.price,
-                priceChange: coin.display.usd.change24Hour,
-                priceChangePercent: coin.display.usd.changepct24Hour
+                priceChange: coin.raw.usd.change24Hour,
+                priceChangePercent: coin.raw.usd.changepct24Hour
+                
             )
             return viewModel
         }
-        
-        viewController?.successFetchedTopList(viewModel: topListViewModel)
+        DispatchQueue.main.async { [weak self] in
+            self?.viewController?.successFetchedTopList(viewModel: topListViewModel)
+        }
     }
     
 }

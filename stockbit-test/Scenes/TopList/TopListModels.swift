@@ -22,8 +22,8 @@ enum TopListModels {
                 let name: String
                 let fullName: String
                 let price: String
-                let priceChange: String
-                let priceChangePercent: String
+                let priceChange: Double
+                let priceChangePercent: Double
             }
         }
     }

@@ -19,13 +19,12 @@ final class TopListInteractor: TopListBusinessLogic, TopListDataStore {
     
     var topList: [TopList]?
     
-    var presenter: TopListPresentationLogic
+    var presenter: TopListPresentationLogic?
 
     var service: TopListServiceProtocol
     
-    init(service: TopListServiceProtocol, presenter: TopListPresentationLogic) {
+    init(service: TopListServiceProtocol) {
         self.service = service
-        self.presenter = presenter
     }
     
     func fetchTopList(request: TopListModels.FetchTopList.Request) {
@@ -33,9 +32,9 @@ final class TopListInteractor: TopListBusinessLogic, TopListDataStore {
             switch result {
             case .success(let topListResponse):
                 let toplist = topListResponse.data
-                self?.presenter.presentTopList(response: TopListModels.FetchTopList.Response(toplist: toplist,isError: false, message: nil))
+                self?.presenter?.presentTopList(response: TopListModels.FetchTopList.Response(toplist: toplist,isError: false, message: nil))
             case .failure(let error):
-                self?.presenter.presentTopList(response: TopListModels.FetchTopList.Response(toplist: nil,isError: true, message: error.localizedDescription))
+                self?.presenter?.presentTopList(response: TopListModels.FetchTopList.Response(toplist: nil,isError: true, message: error.localizedDescription))
             }
         }
     }
