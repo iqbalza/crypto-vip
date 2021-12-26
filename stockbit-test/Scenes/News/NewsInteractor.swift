@@ -11,11 +11,11 @@ protocol NewsBusinessLogic {
 
 class NewsInteractor: NewsBusinessLogic {
     
-    var newsService: NewsService
+    var newsService: NewsServiceProtocol
     var presenter: NewsPresentationLogic
 
     
-    init(newsService: NewsService = NewsService.shared, presenter: NewsPresentationLogic) {
+    init(newsService: NewsServiceProtocol = NewsService.shared, presenter: NewsPresentationLogic) {
         self.newsService = newsService
         self.presenter = presenter
     }

@@ -8,21 +8,22 @@
 import XCTest
 @testable import stockbit_test
 
-class TopListViewTest: XCTestCase {
+class TopListViewControllerTest: XCTestCase {
     
     var sut: TopListViewController!
     var interactorSpy: InteractorSpy!
     
     override func setUp() {
-        //given
+        super.setUp()
         interactorSpy = InteractorSpy()
         sut = TopListViewController(interactor: interactorSpy)
         sut.loadViewIfNeeded()
     }
-
-    func makeSUT() -> TopListViewController {
-        
-        return sut
+    
+    override func tearDown() {
+        super.tearDown()
+        sut = nil
+        interactorSpy = nil
     }
     
     func testFetchTopListShouldBeCalledWhenViewDidLoad() {
@@ -40,7 +41,7 @@ class TopListViewTest: XCTestCase {
         let displayedTopLists: [TopListModels.DisplayedTopList] = []
         let viewModel = TopListModels.FetchTopList.ViewModel(error: nil, displayedTopLists: displayedTopLists)
         let tableViewShouldReloadExp = XCTestExpectation(description: "view should reload tableview")
-        let tableViewSpyClosure: (()->Void) = {
+        let tableViewSpyClosure: (()-> Void) = {
             tableViewShouldReloadExp.fulfill()
         }
         tableViewSpy.reloadDataCalledClosure = tableViewSpyClosure
