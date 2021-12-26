@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002B3ECB2702284304A70426 /* Pods_stockbit_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FD8A51FE294AB32928920E /* Pods_stockbit_test.framework */; };
+		59BF1945AD333FA2512733CF /* Pods_stockbit_testTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54B6DE3962B53AC8C052128 /* Pods_stockbit_testTests.framework */; };
+		B774DF0404188B4D7B37A4EA /* Pods_stockbit_test_stockbit_testUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7FBF61B7617AE6CD2DFCCD /* Pods_stockbit_test_stockbit_testUITests.framework */; };
 		F23460CD2775C8CB00F7B954 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23460CC2775C8CB00F7B954 /* AppDelegate.swift */; };
 		F23460CF2775C8CB00F7B954 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23460CE2775C8CB00F7B954 /* SceneDelegate.swift */; };
 		F23460D62775C8CC00F7B954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23460D52775C8CC00F7B954 /* Assets.xcassets */; };
@@ -64,6 +67,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18D86042D951FB329E697064 /* Pods-stockbit-test-stockbit-testUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockbit-test-stockbit-testUITests.release.xcconfig"; path = "Target Support Files/Pods-stockbit-test-stockbit-testUITests/Pods-stockbit-test-stockbit-testUITests.release.xcconfig"; sourceTree = "<group>"; };
+		36FD8A51FE294AB32928920E /* Pods_stockbit_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stockbit_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C5A683B9E93C411E5C2931C /* Pods-stockbit-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockbit-test.debug.xcconfig"; path = "Target Support Files/Pods-stockbit-test/Pods-stockbit-test.debug.xcconfig"; sourceTree = "<group>"; };
+		7DD515B86E5F0C4F64754094 /* Pods-stockbit-testTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockbit-testTests.release.xcconfig"; path = "Target Support Files/Pods-stockbit-testTests/Pods-stockbit-testTests.release.xcconfig"; sourceTree = "<group>"; };
+		CB7FBF61B7617AE6CD2DFCCD /* Pods_stockbit_test_stockbit_testUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stockbit_test_stockbit_testUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D047CF016F4A0F3090535142 /* Pods-stockbit-testTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockbit-testTests.debug.xcconfig"; path = "Target Support Files/Pods-stockbit-testTests/Pods-stockbit-testTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D3834C16012EAB68B4A30035 /* Pods-stockbit-test-stockbit-testUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockbit-test-stockbit-testUITests.debug.xcconfig"; path = "Target Support Files/Pods-stockbit-test-stockbit-testUITests/Pods-stockbit-test-stockbit-testUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D54B6DE3962B53AC8C052128 /* Pods_stockbit_testTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stockbit_testTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23460C92775C8CB00F7B954 /* stockbit-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stockbit-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23460CC2775C8CB00F7B954 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F23460CE2775C8CB00F7B954 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +116,7 @@
 		F2C593E42777321800D29BA3 /* TopListInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListInteractorTest.swift; sourceTree = "<group>"; };
 		F2C593E827775F2700D29BA3 /* TopListPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListPresenterTest.swift; sourceTree = "<group>"; };
 		F2C593EB2778181F00D29BA3 /* TopListViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListViewControllerTest.swift; sourceTree = "<group>"; };
+		F2D55BA321AEC3487F984197 /* Pods-stockbit-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockbit-test.release.xcconfig"; path = "Target Support Files/Pods-stockbit-test/Pods-stockbit-test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002B3ECB2702284304A70426 /* Pods_stockbit_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59BF1945AD333FA2512733CF /* Pods_stockbit_testTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,12 +140,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B774DF0404188B4D7B37A4EA /* Pods_stockbit_test_stockbit_testUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		219F8062FAFDAF03805F4408 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C5A683B9E93C411E5C2931C /* Pods-stockbit-test.debug.xcconfig */,
+				F2D55BA321AEC3487F984197 /* Pods-stockbit-test.release.xcconfig */,
+				D3834C16012EAB68B4A30035 /* Pods-stockbit-test-stockbit-testUITests.debug.xcconfig */,
+				18D86042D951FB329E697064 /* Pods-stockbit-test-stockbit-testUITests.release.xcconfig */,
+				D047CF016F4A0F3090535142 /* Pods-stockbit-testTests.debug.xcconfig */,
+				7DD515B86E5F0C4F64754094 /* Pods-stockbit-testTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		885894BDA2E8152767D32264 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				36FD8A51FE294AB32928920E /* Pods_stockbit_test.framework */,
+				CB7FBF61B7617AE6CD2DFCCD /* Pods_stockbit_test_stockbit_testUITests.framework */,
+				D54B6DE3962B53AC8C052128 /* Pods_stockbit_testTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F23460C02775C8CB00F7B954 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +178,8 @@
 				F23460E22775C8CD00F7B954 /* stockbit-testTests */,
 				F23460EC2775C8CD00F7B954 /* stockbit-testUITests */,
 				F23460CA2775C8CB00F7B954 /* Products */,
+				219F8062FAFDAF03805F4408 /* Pods */,
+				885894BDA2E8152767D32264 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,9 +355,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F23460F32775C8CD00F7B954 /* Build configuration list for PBXNativeTarget "stockbit-test" */;
 			buildPhases = (
+				39B58A4863E030DE8E08FA10 /* [CP] Check Pods Manifest.lock */,
 				F23460C52775C8CB00F7B954 /* Sources */,
 				F23460C62775C8CB00F7B954 /* Frameworks */,
 				F23460C72775C8CB00F7B954 /* Resources */,
+				5B26A2BD2C82DEE197FD1526 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,6 +374,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F23460F62775C8CD00F7B954 /* Build configuration list for PBXNativeTarget "stockbit-testTests" */;
 			buildPhases = (
+				CC157EA11A684F2BEB49C14C /* [CP] Check Pods Manifest.lock */,
 				F23460DB2775C8CC00F7B954 /* Sources */,
 				F23460DC2775C8CC00F7B954 /* Frameworks */,
 				F23460DD2775C8CC00F7B954 /* Resources */,
@@ -349,9 +393,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F23460F92775C8CD00F7B954 /* Build configuration list for PBXNativeTarget "stockbit-testUITests" */;
 			buildPhases = (
+				DF351B372A4A1B0B5EB738CB /* [CP] Check Pods Manifest.lock */,
 				F23460E52775C8CD00F7B954 /* Sources */,
 				F23460E62775C8CD00F7B954 /* Frameworks */,
 				F23460E72775C8CD00F7B954 /* Resources */,
+				B6DF441E33206480E4E231E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -435,6 +481,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39B58A4863E030DE8E08FA10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-stockbit-test-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B26A2BD2C82DEE197FD1526 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-stockbit-test/Pods-stockbit-test-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-stockbit-test/Pods-stockbit-test-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-stockbit-test/Pods-stockbit-test-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6DF441E33206480E4E231E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-stockbit-test-stockbit-testUITests/Pods-stockbit-test-stockbit-testUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-stockbit-test-stockbit-testUITests/Pods-stockbit-test-stockbit-testUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-stockbit-test-stockbit-testUITests/Pods-stockbit-test-stockbit-testUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC157EA11A684F2BEB49C14C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-stockbit-testTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF351B372A4A1B0B5EB738CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-stockbit-test-stockbit-testUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F23460C52775C8CB00F7B954 /* Sources */ = {
@@ -634,6 +783,7 @@
 		};
 		F23460F42775C8CD00F7B954 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C5A683B9E93C411E5C2931C /* Pods-stockbit-test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -661,6 +811,7 @@
 		};
 		F23460F52775C8CD00F7B954 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2D55BA321AEC3487F984197 /* Pods-stockbit-test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -688,6 +839,7 @@
 		};
 		F23460F72775C8CD00F7B954 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D047CF016F4A0F3090535142 /* Pods-stockbit-testTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -708,6 +860,7 @@
 		};
 		F23460F82775C8CD00F7B954 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DD515B86E5F0C4F64754094 /* Pods-stockbit-testTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -728,6 +881,7 @@
 		};
 		F23460FA2775C8CD00F7B954 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3834C16012EAB68B4A30035 /* Pods-stockbit-test-stockbit-testUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -746,6 +900,7 @@
 		};
 		F23460FB2775C8CD00F7B954 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18D86042D951FB329E697064 /* Pods-stockbit-test-stockbit-testUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
