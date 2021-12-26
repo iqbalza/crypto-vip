@@ -48,7 +48,7 @@ enum Endpoint {
             return "/data/top/totaltoptiervolfull"
         
         case .getNews(category: _):
-            return "/data/v2/news"
+            return "/data/v2/news/"
         }
     }
     

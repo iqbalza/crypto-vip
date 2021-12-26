@@ -16,12 +16,11 @@ import Foundation
 
 // MARK: - NewsResponse
 struct NewsResponse: Codable {
-    let data: [News]
+    let news: [News]
     
     private enum CodingKeys: String, CodingKey {
-            case data = "Data"
+            case news = "Data"
          }
-    
 }
 
 // MARK: - Datum
