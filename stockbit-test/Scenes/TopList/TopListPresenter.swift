@@ -13,21 +13,52 @@ protocol TopListPresentationLogic {
 
 final class TopListPresenter: TopListPresentationLogic {
     
-    var viewController: TopListDisplayLogic?
+    var viewController: TopListDisplayLogic
+    
+    init(viewController: TopListDisplayLogic) {
+        self.viewController = viewController
+    }
     
     func presentTopList(response: TopListModels.FetchTopList.Response) {
-        var topListViewModel: [TopListModels.FetchTopList.ViewModel.TopList] =  response.toplist!.map { (coin) -> TopListModels.FetchTopList.ViewModel.TopList in
-            let viewModel = TopListModels.FetchTopList.ViewModel.TopList(
-                name: coin.coinInfo.name,
-                fullName: coin.coinInfo.fullName,
-                price: coin.display.usd.price,
-                priceChange: coin.display.usd.change24Hour,
-                priceChangePercent: coin.display.usd.changepct24Hour
-            )
-            return viewModel
+            let viewModel = TopListModels.FetchTopList.ViewModel(error: response.error, displayedTopLists: self.getDisplayedTopList(topLists: response.toplist))
+            self.viewController.displayTopLists(viewModel: viewModel)
+    }
+  
+   private func getDisplayedTopList(topLists: [TopList]?) -> [TopListModels.DisplayedTopList]? {
+        guard let topLists = topLists else {
+           return nil
         }
         
-        viewController?.successFetchedTopList(viewModel: topListViewModel)
+        let displayedTopLists: [TopListModels.DisplayedTopList] =  topLists.map { (topList) -> TopListModels.DisplayedTopList in
+            var hasEmptyPrice = true
+            var priceChange: String? = nil
+            var totalPriceChange: String? = nil
+            var price: String? = nil
+            var isNegative: Bool? = nil
+            
+            //if coin has price
+            if let raw = topList.raw {
+                hasEmptyPrice = false
+                isNegative = raw.usd.changeHour.sign == .minus
+                priceChange = String(format:"%.2f", raw.usd.changeHour)
+                priceChange = isNegative! ? priceChange : "+\(priceChange!)"
+                var priceChangePct = String(format:"%.2f", raw.usd.changepctHour)
+                priceChangePct = isNegative! ? priceChangePct + "%" : "+" + priceChangePct + "%"
+                totalPriceChange = "\(priceChange!)(\(priceChangePct))"
+                price = String(format: "%.2f", raw.usd.price)
+            }
+            
+            let displayedTopList = TopListModels.DisplayedTopList(
+                name: topList.coinInfo.name,
+                fullName: topList.coinInfo.fullName,
+                price: price,
+                priceChange: totalPriceChange,
+                isNegative: isNegative,
+                hasEmptyPrice: hasEmptyPrice
+            )
+            return displayedTopList
+        }
+        return displayedTopLists
     }
     
 }

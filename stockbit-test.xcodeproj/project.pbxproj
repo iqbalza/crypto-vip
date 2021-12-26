@@ -11,7 +11,6 @@
 		F23460CF2775C8CB00F7B954 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23460CE2775C8CB00F7B954 /* SceneDelegate.swift */; };
 		F23460D62775C8CC00F7B954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23460D52775C8CC00F7B954 /* Assets.xcassets */; };
 		F23460D92775C8CC00F7B954 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23460D72775C8CC00F7B954 /* LaunchScreen.storyboard */; };
-		F23460E42775C8CD00F7B954 /* stockbit_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23460E32775C8CD00F7B954 /* stockbit_testTests.swift */; };
 		F23460EE2775C8CD00F7B954 /* stockbit_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23460ED2775C8CD00F7B954 /* stockbit_testUITests.swift */; };
 		F23460F02775C8CD00F7B954 /* stockbit_testUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23460EF2775C8CD00F7B954 /* stockbit_testUITestsLaunchTests.swift */; };
 		F2C593C02776AAD000D29BA3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593BF2776AAD000D29BA3 /* APIManager.swift */; };
@@ -26,6 +25,12 @@
 		F2C593D52776B4B400D29BA3 /* TopListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593D42776B4B400D29BA3 /* TopListPresenter.swift */; };
 		F2C593D72776B4C500D29BA3 /* TopListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593D62776B4C500D29BA3 /* TopListRouter.swift */; };
 		F2C593DA2776B4F500D29BA3 /* TopListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593D92776B4F500D29BA3 /* TopListModels.swift */; };
+		F2C593DE2776BC2E00D29BA3 /* TopListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593DC2776BC2E00D29BA3 /* TopListTableViewCell.swift */; };
+		F2C593DF2776BC2E00D29BA3 /* TopListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C593DD2776BC2E00D29BA3 /* TopListTableViewCell.xib */; };
+		F2C593E1277719F700D29BA3 /* TopListSceneStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593E0277719F700D29BA3 /* TopListSceneStub.swift */; };
+		F2C593E52777321800D29BA3 /* TopListInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593E42777321800D29BA3 /* TopListInteractorTest.swift */; };
+		F2C593E927775F2700D29BA3 /* TopListPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593E827775F2700D29BA3 /* TopListPresenterTest.swift */; };
+		F2C593EC2778181F00D29BA3 /* TopListViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593EB2778181F00D29BA3 /* TopListViewTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +58,6 @@
 		F23460D82775C8CC00F7B954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F23460DA2775C8CC00F7B954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23460DF2775C8CC00F7B954 /* stockbit-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stockbit-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F23460E32775C8CD00F7B954 /* stockbit_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockbit_testTests.swift; sourceTree = "<group>"; };
 		F23460E92775C8CD00F7B954 /* stockbit-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stockbit-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23460ED2775C8CD00F7B954 /* stockbit_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockbit_testUITests.swift; sourceTree = "<group>"; };
 		F23460EF2775C8CD00F7B954 /* stockbit_testUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockbit_testUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -69,6 +73,12 @@
 		F2C593D42776B4B400D29BA3 /* TopListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListPresenter.swift; sourceTree = "<group>"; };
 		F2C593D62776B4C500D29BA3 /* TopListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListRouter.swift; sourceTree = "<group>"; };
 		F2C593D92776B4F500D29BA3 /* TopListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListModels.swift; sourceTree = "<group>"; };
+		F2C593DC2776BC2E00D29BA3 /* TopListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListTableViewCell.swift; sourceTree = "<group>"; };
+		F2C593DD2776BC2E00D29BA3 /* TopListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopListTableViewCell.xib; sourceTree = "<group>"; };
+		F2C593E0277719F700D29BA3 /* TopListSceneStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListSceneStub.swift; sourceTree = "<group>"; };
+		F2C593E42777321800D29BA3 /* TopListInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListInteractorTest.swift; sourceTree = "<group>"; };
+		F2C593E827775F2700D29BA3 /* TopListPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListPresenterTest.swift; sourceTree = "<group>"; };
+		F2C593EB2778181F00D29BA3 /* TopListViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListViewTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +145,8 @@
 		F23460E22775C8CD00F7B954 /* stockbit-testTests */ = {
 			isa = PBXGroup;
 			children = (
-				F23460E32775C8CD00F7B954 /* stockbit_testTests.swift */,
+				F2C593EA2778137C00D29BA3 /* Stubs */,
+				F2C593E627775EE900D29BA3 /* Scenes */,
 			);
 			path = "stockbit-testTests";
 			sourceTree = "<group>";
@@ -187,6 +198,7 @@
 		F2C593D82776B4E400D29BA3 /* TopList */ = {
 			isa = PBXGroup;
 			children = (
+				F2C593DB2776BC1200D29BA3 /* TopListCell */,
 				F2C593CE2776B4A000D29BA3 /* TopListViewController.swift */,
 				F2C593CF2776B4A000D29BA3 /* TopListViewController.xib */,
 				F2C593D22776B4AB00D29BA3 /* TopListInteractor.swift */,
@@ -195,6 +207,41 @@
 				F2C593D92776B4F500D29BA3 /* TopListModels.swift */,
 			);
 			path = TopList;
+			sourceTree = "<group>";
+		};
+		F2C593DB2776BC1200D29BA3 /* TopListCell */ = {
+			isa = PBXGroup;
+			children = (
+				F2C593DC2776BC2E00D29BA3 /* TopListTableViewCell.swift */,
+				F2C593DD2776BC2E00D29BA3 /* TopListTableViewCell.xib */,
+			);
+			path = TopListCell;
+			sourceTree = "<group>";
+		};
+		F2C593E627775EE900D29BA3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F2C593E727775EFC00D29BA3 /* TopList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F2C593E727775EFC00D29BA3 /* TopList */ = {
+			isa = PBXGroup;
+			children = (
+				F2C593E42777321800D29BA3 /* TopListInteractorTest.swift */,
+				F2C593E827775F2700D29BA3 /* TopListPresenterTest.swift */,
+				F2C593EB2778181F00D29BA3 /* TopListViewTest.swift */,
+			);
+			path = TopList;
+			sourceTree = "<group>";
+		};
+		F2C593EA2778137C00D29BA3 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				F2C593E0277719F700D29BA3 /* TopListSceneStub.swift */,
+			);
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +351,7 @@
 				F23460D92775C8CC00F7B954 /* LaunchScreen.storyboard in Resources */,
 				F23460D62775C8CC00F7B954 /* Assets.xcassets in Resources */,
 				F2C593D12776B4A000D29BA3 /* TopListViewController.xib in Resources */,
+				F2C593DF2776BC2E00D29BA3 /* TopListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +383,7 @@
 				F2C593C02776AAD000D29BA3 /* APIManager.swift in Sources */,
 				F2C593D32776B4AB00D29BA3 /* TopListInteractor.swift in Sources */,
 				F23460CD2775C8CB00F7B954 /* AppDelegate.swift in Sources */,
+				F2C593DE2776BC2E00D29BA3 /* TopListTableViewCell.swift in Sources */,
 				F2C593C72776AB9D00D29BA3 /* APIErrorResponse.swift in Sources */,
 				F2C593CA2776B44600D29BA3 /* TopListService.swift in Sources */,
 				F2C593C22776AB4200D29BA3 /* APIErrorResult.swift in Sources */,
@@ -348,7 +397,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23460E42775C8CD00F7B954 /* stockbit_testTests.swift in Sources */,
+				F2C593E927775F2700D29BA3 /* TopListPresenterTest.swift in Sources */,
+				F2C593E52777321800D29BA3 /* TopListInteractorTest.swift in Sources */,
+				F2C593EC2778181F00D29BA3 /* TopListViewTest.swift in Sources */,
+				F2C593E1277719F700D29BA3 /* TopListSceneStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

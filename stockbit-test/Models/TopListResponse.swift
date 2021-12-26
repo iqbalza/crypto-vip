@@ -14,25 +14,21 @@ struct TopListResponse: Codable {
     let message: String
     let type: Int
     let data: [TopList]
-    let response: String?
     
    private enum CodingKeys: String, CodingKey {
             case message = "Message"
             case type = "Type"
             case data = "Data"
-            case response = "Response"
         }
 }
 
 struct TopList: Codable {
     let coinInfo: CoinInfo
-    let raw: Raw
-    let display: Display
+    let raw: Raw?
     
     private enum CodingKeys: String, CodingKey {
              case coinInfo = "CoinInfo"
              case raw = "RAW"
-             case display = "DISPLAY"
          }
 }
 
@@ -49,28 +45,6 @@ struct CoinInfo: Codable {
          }
 }
 
-// MARK: - Display
-struct Display: Codable {
-    let usd: DisplayUsd
-    
-    private enum CodingKeys: String, CodingKey {
-             case usd = "USD"
-         }
-}
-
-// MARK: - DisplayUsd
-struct DisplayUsd: Codable {
-    let price: String
-    let change24Hour: String
-    let changepct24Hour: String
-    
-    private enum CodingKeys: String, CodingKey {
-            case price = "PRICE"
-            case change24Hour = "CHANGE24HOUR"
-            case changepct24Hour = "CHANGEPCT24HOUR"
-
-         }
-}
 
 // MARK: - Raw
 struct Raw: Codable{
@@ -84,12 +58,14 @@ struct Raw: Codable{
 // MARK: - RawUsd
 struct RawUsd:Codable {
     let price: Double
-    let change24Hour: Double
-    let changepct24Hour: Double
+    let changeHour: Double
+    let changepctHour: Double
     
     private enum CodingKeys: String, CodingKey {
             case price = "PRICE"
-            case change24Hour = "CHANGE24HOUR"
-            case changepct24Hour = "CHANGEPCT24HOUR"
+            case changeHour = "CHANGEHOUR"
+            case changepctHour = "CHANGEPCTHOUR"
          }
 }
+
+
