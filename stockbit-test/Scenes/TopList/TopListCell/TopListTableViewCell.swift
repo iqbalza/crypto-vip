@@ -41,14 +41,24 @@ class TopListTableViewCell: UITableViewCell {
     
     
     func configure(displayedTopList: TopListModels.DisplayedTopList) {
-        
-        
-        
         nameLbl.text = displayedTopList.name
         fullNameLbl.text = displayedTopList.fullName
-        priceLbl.text = displayedTopList.price
-        differentLbl.text = displayedTopList.priceChange
-        differentLblContainer.backgroundColor = displayedTopList.isNegative ? .systemRed : .systemGreen
+        
+        guard !displayedTopList.hasEmptyPrice,
+              let price = displayedTopList.price,
+              let priceChange = displayedTopList.priceChange,
+              let isNegative = displayedTopList.isNegative
+        else
+            {
+                differentLblContainer.backgroundColor = .gray
+                priceLbl.text = "-"
+                differentLbl.text = "-"
+                return
+            }
+        
+        priceLbl.text = price
+        differentLbl.text = priceChange
+        differentLblContainer.backgroundColor = isNegative ? .systemRed : .systemGreen
     }
     
 }

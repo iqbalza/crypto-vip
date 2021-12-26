@@ -12,14 +12,14 @@ enum TopListModels {
     struct DisplayedTopList {
         let name: String
         let fullName: String
-        let price: String
-        let priceChange: String
-        let isNegative: Bool
+        let price: String?
+        let priceChange: String?
+        let isNegative: Bool?
+        let hasEmptyPrice: Bool
     }
     
     enum FetchTopList {
         struct Request {
-            
         }
         struct Response {
             let toplist: [TopList]?

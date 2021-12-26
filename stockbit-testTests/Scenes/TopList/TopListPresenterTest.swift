@@ -1,14 +1,13 @@
 //
-//  stockbit_testTests.swift
+//  TopListPresenterTest.swift
 //  stockbit-testTests
 //
-//  Created by Iqbal Zauqul Adib on 24/12/21.
+//  Created by Iqbal Zauqul Adib on 25/12/21.
 //
 
 import XCTest
-@testable import stockbit_test
 
-class stockbit_testTests: XCTestCase {
+class TopListPresenterTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -14,19 +14,17 @@ struct TopListResponse: Codable {
     let message: String
     let type: Int
     let data: [TopList]
-    let response: String?
     
    private enum CodingKeys: String, CodingKey {
             case message = "Message"
             case type = "Type"
             case data = "Data"
-            case response = "Response"
         }
 }
 
 struct TopList: Codable {
     let coinInfo: CoinInfo
-    let raw: Raw
+    let raw: Raw?
     
     private enum CodingKeys: String, CodingKey {
              case coinInfo = "CoinInfo"
@@ -69,3 +67,5 @@ struct RawUsd:Codable {
             case changepctHour = "CHANGEPCTHOUR"
          }
 }
+
+
