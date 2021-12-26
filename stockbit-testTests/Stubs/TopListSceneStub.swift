@@ -12,11 +12,7 @@ import XCTest
 struct TopListSceneStub {
     
     struct TopListResponseStub {
-        static let successResponse =  TopListResponse(
-                                        message: "Success",
-                                        type: 100,
-                                        data: TopListSceneStub.TopListsStub.all
-                                        )
+        static let successResponse =  TopListResponse(data: TopListSceneStub.TopListsStub.all)
     }
     
     struct TopListsStub {

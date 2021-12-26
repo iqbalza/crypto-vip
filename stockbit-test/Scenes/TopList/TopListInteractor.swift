@@ -18,9 +18,7 @@ protocol TopListDataStore {
 final class TopListInteractor: TopListBusinessLogic, TopListDataStore {
     
     var topList: [TopList]?
-    
     var presenter: TopListPresentationLogic
-
     var service: TopListServiceProtocol
     
     init(service: TopListServiceProtocol = TopListService.shared, presenter: TopListPresentationLogic) {

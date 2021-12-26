@@ -14,13 +14,11 @@ protocol TopListDisplayLogic {
 class TopListViewController: UIViewController {
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl = UIRefreshControl()
-    
     var interactor: TopListBusinessLogic?
-    
+    var router: TopListRouter?
     var displayedTopLists: [TopListModels.DisplayedTopList] = []
     
     // MARK: - Initializers
@@ -49,6 +47,8 @@ class TopListViewController: UIViewController {
     private func setup() {
         let viewController = self
         let presenter = TopListPresenter(viewController: viewController)
+        let router = TopListRouter(viewController: viewController)
+        self.router = router
         interactor = TopListInteractor(presenter: presenter)
     }
     
@@ -80,9 +80,14 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: TopListTableViewCell.identifier)  as! TopListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TopListTableViewCell.identifier)  as! TopListTableViewCell
         cell.configure(displayedTopList: displayedTopLists[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = displayedTopLists[indexPath.row].name
+        router?.routeToNews(category: category)
     }
     
 }

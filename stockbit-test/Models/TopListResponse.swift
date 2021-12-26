@@ -11,13 +11,9 @@ import Foundation
 
 
 struct TopListResponse: Codable {
-    let message: String
-    let type: Int
     let data: [TopList]
     
    private enum CodingKeys: String, CodingKey {
-            case message = "Message"
-            case type = "Type"
             case data = "Data"
         }
 }
