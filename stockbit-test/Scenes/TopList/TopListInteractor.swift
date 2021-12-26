@@ -23,7 +23,7 @@ final class TopListInteractor: TopListBusinessLogic, TopListDataStore {
 
     var service: TopListServiceProtocol
     
-    init(service: TopListServiceProtocol, presenter: TopListPresentationLogic) {
+    init(service: TopListServiceProtocol = TopListService.shared, presenter: TopListPresentationLogic) {
         self.service = service
         self.presenter = presenter
     }

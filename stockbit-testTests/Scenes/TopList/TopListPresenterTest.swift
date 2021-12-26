@@ -6,30 +6,50 @@
 //
 
 import XCTest
-
+@testable import stockbit_test
 class TopListPresenterTest: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    var sut: TopListPresenter!
+    
+    func testPresentTopList() {
+        //given
+        let topListViewControllerSpy = TopListViewSpy()
+        let expectation = XCTestExpectation(description: "display top list should be called")
+        let expectationClosure: (() -> Void) = {
+            expectation.fulfill()
         }
+        topListViewControllerSpy.isDisplayTopListCalled = expectationClosure
+        sut = TopListPresenter(viewController: topListViewControllerSpy)
+        
+        //when
+        let expectedDisplayedTopList = TopListSceneStub.DisplayedTopListStub.displayedTopList
+        
+        let topList = TopListSceneStub.TopListsStub.all
+        let response = TopListModels.FetchTopList.Response(toplist: topList, error: nil)
+        sut.presentTopList(response: response)
+        
+        //then
+        wait(for: [expectation], timeout: 5)
+        XCTAssertTrue(topListViewControllerSpy.viewModel?.error==nil)
+        XCTAssertTrue(topListViewControllerSpy.viewModel!.displayedTopLists != nil)
+        XCTAssertEqual(topListViewControllerSpy.viewModel!.displayedTopLists, expectedDisplayedTopList)
+        
     }
-
+    
+    class TopListViewSpy: TopListDisplayLogic {
+        var isDisplayTopListCalled: (() -> Void)?
+        var viewModel: TopListModels.FetchTopList.ViewModel?
+        
+        func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel) {
+            self.isDisplayTopListCalled?()
+            self.viewModel = viewModel
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
 }

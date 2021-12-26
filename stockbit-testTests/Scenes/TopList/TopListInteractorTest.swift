@@ -23,6 +23,7 @@ class TopListInteractorTest: XCTestCase {
         //then
         XCTAssertTrue(mockTopListsService.isFetchTopListCalled, "fetchTopList() should ask the service to fetch top lists")
         XCTAssert(topListPresentationLogicSpy.isPresentTopListsCalled, "fetchTopList() should ask the presenter to display top lists")
+        XCTAssert(topListPresentationLogicSpy.response?.error == nil)
         XCTAssertEqual(topListPresentationLogicSpy.response?.toplist, mockTopListsService.successStub.data)
     }
     
@@ -40,7 +41,7 @@ class TopListInteractorTest: XCTestCase {
         
         var isFetchTopListCalled = false
         
-        var successStub = Stubs.TopListResponseStub.successResponse
+        var successStub = TopListSceneStub.TopListResponseStub.successResponse
         
         func fetchTopList(completion: @escaping (Result<TopListResponse, APIErrorResult>) -> ()) {
             completion(.success(successStub))

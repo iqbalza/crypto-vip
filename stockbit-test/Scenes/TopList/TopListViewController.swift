@@ -11,7 +11,7 @@ protocol TopListDisplayLogic {
     func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel)
 }
 
-class TopListViewController: UIViewController, TopListDisplayLogic {
+class TopListViewController: UIViewController {
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
@@ -22,66 +22,58 @@ class TopListViewController: UIViewController, TopListDisplayLogic {
     var interactor: TopListBusinessLogic?
     
     var displayedTopLists: [TopListModels.DisplayedTopList] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    // MARK: - Initializers
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil:
+      Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle:nibBundleOrNil)
         setup()
-        setupUI()
-        // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    init(interactor: TopListBusinessLogic? = nil) {
+        super.init(nibName: nil, bundle: nil)
+        self.interactor = interactor
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
         fetchTopList()
     }
     
-    
-    func setup() {
+    private func setup() {
         let viewController = self
-        let presenter = TopListPresenter()
-        let interactor = TopListInteractor(service: TopListService.shared)
-        interactor.presenter = presenter
-        viewController.interactor = interactor
-        presenter.viewController = viewController
+        let presenter = TopListPresenter(viewController: viewController)
+        interactor = TopListInteractor(presenter: presenter)
     }
     
-    func setupUI() {
+    private func setupUI() {
         title = "TopLists"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib.init(nibName: "TopListTableViewCell", bundle: nil), forCellReuseIdentifier: TopListTableViewCell.identifier)
-        
         refreshControl.addTarget(self, action: #selector(fetchTopList), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
     
-   @objc func fetchTopList() {
+    @objc private func fetchTopList() {
         interactor?.fetchTopList(request: TopListModels.FetchTopList.Request())
     }
     
-    func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel) {
-        indicator.stopAnimating()
-        refreshControl.endRefreshing()
-        
-        guard let topLists = viewModel.displayedTopLists else {
-            handleError(error: viewModel.error!)
-            return
-        }
-        
-        self.displayedTopLists = topLists
-        tableView.reloadData()
-    }
-    
-    func handleError(error: APIErrorResult){
+    private func handleError(error: APIErrorResult){
         let alert = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
             self.fetchTopList()
         }))
         present(alert, animated: true, completion: nil)
     }
-    
-    
-
 }
+
 extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         displayedTopLists.count
@@ -93,4 +85,19 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+}
+
+extension TopListViewController: TopListDisplayLogic {
+    func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel) {
+        DispatchQueue.main.async {
+            self.indicator.stopAnimating()
+            self.refreshControl.endRefreshing()
+            guard let topLists = viewModel.displayedTopLists else {
+                self.handleError(error: viewModel.error!)
+                return
+            }
+            self.displayedTopLists = topLists
+            self.tableView.reloadData()
+        }
+    }
 }

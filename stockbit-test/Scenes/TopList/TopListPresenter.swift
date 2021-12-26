@@ -43,8 +43,8 @@ final class TopListPresenter: TopListPresentationLogic {
                 priceChange = String(format:"%.2f", raw.usd.changeHour)
                 priceChange = isNegative! ? priceChange : "+\(priceChange!)"
                 var priceChangePct = String(format:"%.2f", raw.usd.changepctHour)
-                priceChangePct = priceChangePct + "%"
-                totalPriceChange = "\(priceChange!) (\(priceChangePct))"
+                priceChangePct = isNegative! ? priceChangePct + "%" : "+" + priceChangePct + "%"
+                totalPriceChange = "\(priceChange!)(\(priceChangePct))"
                 price = String(format: "%.2f", raw.usd.price)
             }
             
