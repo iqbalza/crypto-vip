@@ -23,7 +23,7 @@ final class TopListInteractor: TopListDataStore {
     var liveUpdateService: LiveUpdateServiceProtocol
     
     
-    init(service: TopListServiceProtocol = TopListService.shared, presenter: TopListPresentationLogic,liveUpdateService:  LiveUpdateServiceProtocol = LiveUpdateService()) {
+    init(service: TopListServiceProtocol = TopListService.shared, presenter: TopListPresentationLogic,liveUpdateService:  LiveUpdateServiceProtocol = LiveUpdateService.shared) {
         self.service = service
         self.presenter = presenter
         self.liveUpdateService = liveUpdateService

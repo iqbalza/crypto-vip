@@ -47,7 +47,6 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         fetchNews()
-        
 
     }
     deinit {

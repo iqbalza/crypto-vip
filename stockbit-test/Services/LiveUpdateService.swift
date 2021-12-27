@@ -16,6 +16,10 @@ class LiveUpdateService: LiveUpdateServiceProtocol {
         
     var socket: WebSocket?
     
+    private init() {}
+    
+    static let shared = LiveUpdateService()
+    
     func subscribe(subsId: [String], completion: @escaping ((LiveTickerResponse)->Void) ) {
         
         let subs = subsId.map { sub in
@@ -65,7 +69,6 @@ class LiveUpdateService: LiveUpdateServiceProtocol {
                 print("Error: \(String(describing: error))")
                 }
         }
-
         
         request.timeoutInterval = 10
         socket?.connect()
@@ -79,7 +82,6 @@ class LiveUpdateService: LiveUpdateServiceProtocol {
     }
 
     guard let data = try? JSONDecoder().decode(LiveTickerResponse.self, from: dataRaw) else {
-        print("Failed data")
         return nil
     }
         return data

@@ -58,7 +58,7 @@ final class TopListPresenter {
         let priceChangeTotal = "\(priceChangeFormatted)(\(priceChangePctFormatted))"
         
         let formatter = NumberFormatter()
-        formatter.locale = Locale.current
+        formatter.locale = Locale(identifier: "en_US")
         formatter.numberStyle = .currency
         if (price < 1) {
             formatter.minimumFractionDigits = 4

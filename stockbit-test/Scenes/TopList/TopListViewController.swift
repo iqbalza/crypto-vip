@@ -89,6 +89,11 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = displayedTopLists[indexPath.row].name
         router?.routeToNews(category: category)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
 }
@@ -99,7 +104,9 @@ extension TopListViewController: TopListDisplayLogic {
         let indexPath = IndexPath(item: viewModel.index, section: 0)
         displayedTopLists[viewModel.index] = viewModel.displayedTopList
         DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadRows(at: [indexPath], with: .none)
+            UIView.performWithoutAnimation {
+                self?.tableView.reconfigureRows(at: [indexPath])
+            }
         }
     }
     
