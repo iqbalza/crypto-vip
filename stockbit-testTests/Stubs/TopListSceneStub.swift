@@ -17,25 +17,27 @@ struct TopListSceneStub {
     
     struct TopListsStub {
         static let btc = TopList(coinInfo: CoinInfo(id: "1182", name: "BTC", fullName: "Bitcoin"),
-                                 raw: Raw(usd: RawUsd(price: 800.000, changeHour: -1.3900000000000006, changepctHour: -1.4141825211109986)))
+                                 raw: Raw(usd: RawUsd(price: 800.000, open24Hour: 755.000)))
 
         static let eth = TopList(coinInfo: CoinInfo(id: "1183", name: "ETH", fullName: "Ethereum"),
-                                 raw: Raw(usd: RawUsd(price: 70.500, changeHour: 38.59999999999991, changepctHour: 0.9433132288683153)))
+                                 raw: Raw(usd: RawUsd(price: 70.500, open24Hour: 65.500)))
+    
+        static let all = [btc,eth]
+    }
+    
+    struct ResponseTopListsStub {
+        static let btc = TopListModels.ResponseTopList(hasEmptyPrice: false, name: TopListSceneStub.TopListsStub.btc.coinInfo.name, fullName: TopListSceneStub.TopListsStub.btc.coinInfo.fullName, price: TopListSceneStub.TopListsStub.btc.raw?.usd.price, priceChangePct: 5.960264900662252, priceChange: 45.000, isNegative: false)
         
-        static let ada = TopList(coinInfo: CoinInfo(id: "1184", name: "ADA", fullName: "Cardano"),
-                                 raw: Raw(usd: RawUsd(price: 65.434, changeHour: -38.59999999999991, changepctHour: -0.9433132288683153)))
-        static let nft = TopList(coinInfo: CoinInfo(id: "1185", name: "NFT", fullName: "APENFT"),
-                                 raw: nil)
+        static let eth = TopListModels.ResponseTopList(hasEmptyPrice: false, name: TopListSceneStub.TopListsStub.eth.coinInfo.name, fullName: TopListSceneStub.TopListsStub.eth.coinInfo.fullName, price: TopListSceneStub.TopListsStub.eth.raw?.usd.price, priceChangePct: 7.633587786259542, priceChange: 5.00, isNegative: false)
+        static let all = [btc,eth]
         
-        static let all = [btc,eth,ada,nft]
     }
     
     struct DisplayedTopListStub {
       static let displayedTopList =  [
-            TopListModels.DisplayedTopList(name: "BTC", fullName: "Bitcoin", price: "800.00", priceChange: "-1.39(-1.41%)", isNegative: true, hasEmptyPrice: false),
-            TopListModels.DisplayedTopList(name: "ETH", fullName: "Ethereum", price: "70.50", priceChange: "+38.60(+0.94%)", isNegative: false, hasEmptyPrice: false),
-            TopListModels.DisplayedTopList(name: "ADA", fullName: "Cardano", price: "65.43", priceChange: "-38.60(-0.94%)", isNegative: true, hasEmptyPrice: false),
-            TopListModels.DisplayedTopList(name: "NFT", fullName: "APENFT", price: nil, priceChange: nil, isNegative: nil, hasEmptyPrice: true)]
+            TopListModels.DisplayedTopList(name: "BTC", fullName: "Bitcoin", price: "$800.00", priceChange: "+45.00(+5.96%)", isNegative: false, hasEmptyPrice: false),
+            TopListModels.DisplayedTopList(name: "ETH", fullName: "Ethereum", price: "$70.50", priceChange: "+5.00(+7.63%)", isNegative: false, hasEmptyPrice: false),
+      ]
     }
     
 }
@@ -46,10 +48,20 @@ extension TopList: Equatable {
         lhs.coinInfo.fullName == rhs.coinInfo.fullName &&
         lhs.coinInfo.name == rhs.coinInfo.name &&
         lhs.raw?.usd.price == rhs.raw?.usd.price &&
-        lhs.raw?.usd.changepctHour == rhs.raw?.usd.changepctHour &&
-        lhs.raw?.usd.changeHour == rhs.raw?.usd.changeHour
+        lhs.raw?.usd.open24Hour == rhs.raw?.usd.open24Hour
     }
     
+}
+
+extension TopListModels.ResponseTopList: Equatable {
+    public static func == (lhs: TopListModels.ResponseTopList, rhs: TopListModels.ResponseTopList) -> Bool {
+         lhs.hasEmptyPrice == rhs.hasEmptyPrice &&
+         lhs.priceChange == rhs.priceChange &&
+         lhs.price == rhs.price &&
+         lhs.fullName == rhs.fullName &&
+         lhs.name == rhs.name &&
+         lhs.isNegative == rhs.isNegative
+     }
 }
 
 extension TopListModels.DisplayedTopList: Equatable {
@@ -61,4 +73,13 @@ extension TopListModels.DisplayedTopList: Equatable {
         lhs.name == rhs.name &&
         lhs.isNegative == rhs.isNegative
     }
+}
+
+extension TopListModels.SubscribePriceChange.Response: Equatable {
+    public static func == (lhs: TopListModels.SubscribePriceChange.Response, rhs: TopListModels.SubscribePriceChange.Response) -> Bool {
+        lhs.index == rhs.index &&
+        lhs.updatedTopList == rhs.updatedTopList
+    }
+    
+    
 }
