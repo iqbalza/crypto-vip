@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol TopListDisplayLogic {
+protocol TopListDisplayLogic: AnyObject {
     func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel)
+    func displayPriceChangeUpdate(viewModel:TopListModels.SubscribePriceChange.ViewModel)
 }
 
 class TopListViewController: UIViewController {
@@ -93,6 +94,15 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension TopListViewController: TopListDisplayLogic {
+    
+    func displayPriceChangeUpdate(viewModel: TopListModels.SubscribePriceChange.ViewModel ) {
+        let indexPath = IndexPath(item: viewModel.index, section: 0)
+        displayedTopLists[viewModel.index] = viewModel.displayedTopList
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadRows(at: [indexPath], with: .none)
+        }
+    }
+    
     func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel) {
         DispatchQueue.main.async {
             self.indicator.stopAnimating()

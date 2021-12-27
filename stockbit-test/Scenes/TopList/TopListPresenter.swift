@@ -9,56 +9,81 @@ import Foundation
 
 protocol TopListPresentationLogic {
     func presentTopList(response: TopListModels.FetchTopList.Response)
+    func presentPriceChangeUpdate(response: TopListModels.SubscribePriceChange.Response)
 }
 
-final class TopListPresenter: TopListPresentationLogic {
+final class TopListPresenter {
     
-    var viewController: TopListDisplayLogic
+    weak var viewController: TopListDisplayLogic?
     
     init(viewController: TopListDisplayLogic) {
         self.viewController = viewController
     }
     
-    func presentTopList(response: TopListModels.FetchTopList.Response) {
-            let viewModel = TopListModels.FetchTopList.ViewModel(error: response.error, displayedTopLists: self.getDisplayedTopList(topLists: response.toplist))
-            self.viewController.displayTopLists(viewModel: viewModel)
-    }
-  
-   private func getDisplayedTopList(topLists: [TopList]?) -> [TopListModels.DisplayedTopList]? {
+    private func getDisplayedTopList(topLists: [TopListModels.ResponseTopList]?) -> [TopListModels.DisplayedTopList]? {
         guard let topLists = topLists else {
            return nil
         }
         
         let displayedTopLists: [TopListModels.DisplayedTopList] =  topLists.map { (topList) -> TopListModels.DisplayedTopList in
-            var hasEmptyPrice = true
-            var priceChange: String? = nil
             var totalPriceChange: String? = nil
             var price: String? = nil
-            var isNegative: Bool? = nil
+            
             
             //if coin has price
-            if let raw = topList.raw {
-                hasEmptyPrice = false
-                isNegative = raw.usd.changeHour.sign == .minus
-                priceChange = String(format:"%.2f", raw.usd.changeHour)
-                priceChange = isNegative! ? priceChange : "+\(priceChange!)"
-                var priceChangePct = String(format:"%.2f", raw.usd.changepctHour)
-                priceChangePct = isNegative! ? priceChangePct + "%" : "+" + priceChangePct + "%"
-                totalPriceChange = "\(priceChange!)(\(priceChangePct))"
-                price = String(format: "%.2f", raw.usd.price)
+            if !topList.hasEmptyPrice {
+                let formattedPrice = formatPrice(price: topList.price!, priceChange: topList.priceChange!, priceChangePct: topList.priceChangePct!, isNegative: topList.isNegative!)
+                price = formattedPrice.price
+                totalPriceChange = formattedPrice.priceChangeTotal
             }
             
             let displayedTopList = TopListModels.DisplayedTopList(
-                name: topList.coinInfo.name,
-                fullName: topList.coinInfo.fullName,
+                name: topList.name,
+                fullName: topList.fullName,
                 price: price,
                 priceChange: totalPriceChange,
-                isNegative: isNegative,
-                hasEmptyPrice: hasEmptyPrice
+                isNegative: topList.isNegative,
+                hasEmptyPrice: topList.hasEmptyPrice
             )
             return displayedTopList
         }
         return displayedTopLists
     }
     
+    private func formatPrice(price: Double, priceChange: Double, priceChangePct: Double, isNegative: Bool) -> (price: String, priceChangeTotal: String) {
+        var priceChangeFormatted = String(format:"%.2f", priceChange)
+        priceChangeFormatted = isNegative ? priceChangeFormatted : "+\(priceChangeFormatted)"
+        var priceChangePctFormatted = String(format:"%.2f", priceChangePct)
+        priceChangePctFormatted = isNegative ? priceChangePctFormatted + "%" : "+" + priceChangePctFormatted + "%"
+        let priceChangeTotal = "\(priceChangeFormatted)(\(priceChangePctFormatted))"
+        
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .currency
+        if (price < 1) {
+            formatter.minimumFractionDigits = 4
+        }
+        let priceFormatted = formatter.string(from: price as NSNumber)
+        
+
+        
+        return (price: priceFormatted!,priceChangeTotal: priceChangeTotal)
+    }
+    
+}
+
+extension TopListPresenter: TopListPresentationLogic {
+    func presentTopList(response: TopListModels.FetchTopList.Response) {
+        let viewModel = TopListModels.FetchTopList.ViewModel(error: response.error, displayedTopLists: self.getDisplayedTopList(topLists: response.responseTopLists))
+            self.viewController?.displayTopLists(viewModel: viewModel)
+    }
+    func presentPriceChangeUpdate(response: TopListModels.SubscribePriceChange.Response) {
+        let formattedPrice = formatPrice(price: response.updatedTopList.price!, priceChange: response.updatedTopList.priceChange!, priceChangePct: response.updatedTopList.priceChangePct!, isNegative: response.updatedTopList.isNegative!)
+        
+        let displayedTopList = TopListModels.DisplayedTopList(name: response.updatedTopList.name, fullName: response.updatedTopList.fullName, price: formattedPrice.price, priceChange: formattedPrice.priceChangeTotal, isNegative: response.updatedTopList.isNegative, hasEmptyPrice: response.updatedTopList.hasEmptyPrice)
+        
+        let viewModel = TopListModels.SubscribePriceChange.ViewModel(index: response.index, displayedTopList: displayedTopList)
+        
+        self.viewController?.displayPriceChangeUpdate(viewModel: viewModel)
+    }
 }

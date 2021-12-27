@@ -29,6 +29,9 @@
 		F26F4C7E27787EF5006D5002 /* NewsSceneStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F4C7D27787EF5006D5002 /* NewsSceneStub.swift */; };
 		F26F4C80277884BC006D5002 /* NewsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F4C7F277884BB006D5002 /* NewsPresenterTest.swift */; };
 		F26F4C8227788BA0006D5002 /* NewsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F4C8127788BA0006D5002 /* NewsViewControllerTest.swift */; };
+		F26F4C8427789818006D5002 /* LiveUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F4C8327789818006D5002 /* LiveUpdateService.swift */; };
+		F26F4C862778B75D006D5002 /* LIveTickerSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F4C852778B75C006D5002 /* LIveTickerSub.swift */; };
+		F26F4C882778BF06006D5002 /* LiveTickerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F4C872778BF06006D5002 /* LiveTickerResponse.swift */; };
 		F2C593C02776AAD000D29BA3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593BF2776AAD000D29BA3 /* APIManager.swift */; };
 		F2C593C22776AB4200D29BA3 /* APIErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593C12776AB4200D29BA3 /* APIErrorResult.swift */; };
 		F2C593C42776AB5A00D29BA3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C593C32776AB5A00D29BA3 /* Endpoint.swift */; };
@@ -98,6 +101,9 @@
 		F26F4C7D27787EF5006D5002 /* NewsSceneStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSceneStub.swift; sourceTree = "<group>"; };
 		F26F4C7F277884BB006D5002 /* NewsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenterTest.swift; sourceTree = "<group>"; };
 		F26F4C8127788BA0006D5002 /* NewsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewControllerTest.swift; sourceTree = "<group>"; };
+		F26F4C8327789818006D5002 /* LiveUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateService.swift; sourceTree = "<group>"; };
+		F26F4C852778B75C006D5002 /* LIveTickerSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIveTickerSub.swift; sourceTree = "<group>"; };
+		F26F4C872778BF06006D5002 /* LiveTickerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTickerResponse.swift; sourceTree = "<group>"; };
 		F2C593BF2776AAD000D29BA3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		F2C593C12776AB4200D29BA3 /* APIErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResult.swift; sourceTree = "<group>"; };
 		F2C593C32776AB5A00D29BA3 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -157,7 +163,6 @@
 				D047CF016F4A0F3090535142 /* Pods-stockbit-testTests.debug.xcconfig */,
 				7DD515B86E5F0C4F64754094 /* Pods-stockbit-testTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -275,6 +280,8 @@
 				F2C593C62776AB9D00D29BA3 /* APIErrorResponse.swift */,
 				F2C593CB2776B45C00D29BA3 /* TopListResponse.swift */,
 				F26F4C632778480C006D5002 /* NewsResponse.swift */,
+				F26F4C852778B75C006D5002 /* LIveTickerSub.swift */,
+				F26F4C872778BF06006D5002 /* LiveTickerResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,6 +291,7 @@
 			children = (
 				F2C593C92776B44600D29BA3 /* TopListService.swift */,
 				F26F4C65277849EF006D5002 /* NewsService.swift */,
+				F26F4C8327789818006D5002 /* LiveUpdateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -593,6 +601,7 @@
 				F2C593D02776B4A000D29BA3 /* TopListViewController.swift in Sources */,
 				F2C593D52776B4B400D29BA3 /* TopListPresenter.swift in Sources */,
 				F2C593DA2776B4F500D29BA3 /* TopListModels.swift in Sources */,
+				F26F4C8427789818006D5002 /* LiveUpdateService.swift in Sources */,
 				F2C593D72776B4C500D29BA3 /* TopListRouter.swift in Sources */,
 				F26F4C7827785619006D5002 /* NewsModels.swift in Sources */,
 				F2C593C02776AAD000D29BA3 /* APIManager.swift in Sources */,
@@ -601,9 +610,11 @@
 				F26F4C762778553D006D5002 /* NewsPresenter.swift in Sources */,
 				F2C593DE2776BC2E00D29BA3 /* TopListTableViewCell.swift in Sources */,
 				F26F4C7127784CF1006D5002 /* NewsTableViewCell.swift in Sources */,
+				F26F4C882778BF06006D5002 /* LiveTickerResponse.swift in Sources */,
 				F2C593C72776AB9D00D29BA3 /* APIErrorResponse.swift in Sources */,
 				F2C593CA2776B44600D29BA3 /* TopListService.swift in Sources */,
 				F26F4C66277849EF006D5002 /* NewsService.swift in Sources */,
+				F26F4C862778B75D006D5002 /* LIveTickerSub.swift in Sources */,
 				F2C593C22776AB4200D29BA3 /* APIErrorResult.swift in Sources */,
 				F26F4C6C27784C0D006D5002 /* NewsViewController.swift in Sources */,
 				F26F4C642778480C006D5002 /* NewsResponse.swift in Sources */,
@@ -796,6 +807,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -824,6 +836,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
