@@ -13,7 +13,6 @@ class NewsInteractor: NewsBusinessLogic {
     
     var newsService: NewsServiceProtocol
     var presenter: NewsPresentationLogic
-
     
     init(newsService: NewsServiceProtocol = NewsService.shared, presenter: NewsPresentationLogic) {
         self.newsService = newsService

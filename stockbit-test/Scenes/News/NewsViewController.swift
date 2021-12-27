@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol NewsDisplayLogic {
+protocol NewsDisplayLogic: AnyObject {
     func displayNews(viewModel: NewsModels.FetchNews.ViewModel)
 }
 
@@ -18,6 +18,7 @@ class NewsViewController: UIViewController {
     var interactor: NewsBusinessLogic?
     var displayedNews: [NewsModels.DisplayedNews] = []
     var category: String?
+    var websocket: LiveUpdateService!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil:
       Bundle?) {
@@ -46,6 +47,11 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         fetchNews()
+        
+
+    }
+    deinit {
+        print("view dc")
     }
     
     func setup() {
