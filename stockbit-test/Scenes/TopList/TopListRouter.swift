@@ -21,8 +21,8 @@ class TopListRouter: TopListRoutingLogic {
     }
     
     func routeToNews(category: String) {
-        let newsViewController = NewsViewController(category: category)
-        let navigationControlelr = UINavigationController(rootViewController: newsViewController)
-        viewController?.present(navigationControlelr, animated: true, completion: nil)
+        let viewController = NewsViewController(category: category)
+        let navigationControlelr = UINavigationController(rootViewController: viewController)
+        self.viewController?.present(navigationControlelr, animated: true, completion: nil)
     }
 }

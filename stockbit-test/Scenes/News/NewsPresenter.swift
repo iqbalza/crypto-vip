@@ -11,7 +11,7 @@ protocol NewsPresentationLogic {
 
 class NewsPresenter: NewsPresentationLogic {
     
-    var viewController: NewsDisplayLogic
+    weak var viewController: NewsDisplayLogic?
     
     init(viewController: NewsDisplayLogic){
         self.viewController = viewController
@@ -20,7 +20,7 @@ class NewsPresenter: NewsPresentationLogic {
     func presentNews(response: NewsModels.FetchNews.Response) {
         let displayedNews = getDisplayedNews(news: response.news)
         let viewModel = NewsModels.FetchNews.ViewModel(displayedNews: displayedNews, error: response.error)
-        viewController.displayNews(viewModel: viewModel)
+        self.viewController?.displayNews(viewModel: viewModel)
     }
     
     private func getDisplayedNews(news: [News]? ) -> [NewsModels.DisplayedNews]? {

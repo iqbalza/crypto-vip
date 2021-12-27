@@ -54,13 +54,11 @@ struct Raw: Codable{
 // MARK: - RawUsd
 struct RawUsd:Codable {
     let price: Double
-    let changeHour: Double
-    let changepctHour: Double
+    let open24Hour: Double
     
     private enum CodingKeys: String, CodingKey {
             case price = "PRICE"
-            case changeHour = "CHANGEHOUR"
-            case changepctHour = "CHANGEPCTHOUR"
+            case open24Hour = "OPEN24HOUR"
          }
 }
 

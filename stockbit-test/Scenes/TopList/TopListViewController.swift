@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol TopListDisplayLogic {
+protocol TopListDisplayLogic: AnyObject {
     func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel)
+    func displayPriceChangeUpdate(viewModel:TopListModels.SubscribePriceChange.ViewModel)
 }
 
 class TopListViewController: UIViewController {
@@ -88,11 +89,27 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = displayedTopLists[indexPath.row].name
         router?.routeToNews(category: category)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
 }
 
 extension TopListViewController: TopListDisplayLogic {
+    
+    func displayPriceChangeUpdate(viewModel: TopListModels.SubscribePriceChange.ViewModel ) {
+        let indexPath = IndexPath(item: viewModel.index, section: 0)
+        displayedTopLists[viewModel.index] = viewModel.displayedTopList
+        DispatchQueue.main.async { [weak self] in
+            UIView.performWithoutAnimation {
+                self?.tableView.reconfigureRows(at: [indexPath])
+            }
+        }
+    }
+    
     func displayTopLists(viewModel: TopListModels.FetchTopList.ViewModel) {
         DispatchQueue.main.async {
             self.indicator.stopAnimating()
