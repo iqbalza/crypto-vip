@@ -6,7 +6,7 @@ target 'stockbit-test' do
   use_frameworks!
 
   # Pods for stockbit-test
-	pod 'Starscream', '~> 4.0.0'
+	pod 'Starscream', '~> 4.0.4'
 
   target 'stockbit-testTests' do
     inherit! :search_paths
