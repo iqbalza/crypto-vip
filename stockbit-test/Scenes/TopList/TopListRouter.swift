@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol TopListRoutingLogic {
     func routeToNews(category: String)
 }

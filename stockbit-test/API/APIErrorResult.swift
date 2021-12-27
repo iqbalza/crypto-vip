@@ -5,8 +5,6 @@
 //  Created by Iqbal Zauqul Adib on 25/12/21.
 //
 
-import Foundation
-
 enum APIErrorResult: Error {
     case decodingFailed
     case serverError(error: String)

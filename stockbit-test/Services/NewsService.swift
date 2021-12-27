@@ -5,8 +5,6 @@
 //  Created by Iqbal Zauqul Adib on 26/12/21.
 //
 
-import Foundation
-
 protocol NewsServiceProtocol {
     func fetchNews(category:String, completion: @escaping (Result<NewsResponse,APIErrorResult>)->() )
 }
