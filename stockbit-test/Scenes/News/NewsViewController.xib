@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsViewController" customModule="stockbit_test" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="P4L-5t-YbF" id="36P-eG-zMM"/>
                 <outlet property="tableView" destination="l3L-BM-b4W" id="Cnb-pV-bPy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,12 +24,20 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="P4L-5t-YbF">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="P4L-5t-YbF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="1Yc-0B-4ES"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="P4L-5t-YbF" secondAttribute="trailing" id="B2h-j4-8tQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="l3L-BM-b4W" secondAttribute="bottom" id="HX0-TL-Ku7"/>
                 <constraint firstItem="l3L-BM-b4W" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="be4-U9-rBC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="P4L-5t-YbF" secondAttribute="bottom" id="bxc-5b-xFu"/>
+                <constraint firstItem="P4L-5t-YbF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hTV-M7-HuT"/>
                 <constraint firstItem="l3L-BM-b4W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rjt-uM-i5h"/>
                 <constraint firstItem="l3L-BM-b4W" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="zzs-P0-629"/>
             </constraints>

@@ -18,7 +18,7 @@ class NewsViewController: UIViewController {
     var interactor: NewsBusinessLogic?
     var displayedNews: [NewsModels.DisplayedNews] = []
     var category: String?
-    var websocket: LiveUpdateService!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil:
       Bundle?) {
@@ -67,6 +67,7 @@ class NewsViewController: UIViewController {
     }
     
     func fetchNews() {
+        activityIndicator.startAnimating()
         interactor?.fetchNews(request: NewsModels.FetchNews.Request(category: category!))
     }
 
@@ -93,6 +94,7 @@ extension NewsViewController: NewsDisplayLogic {
             }
             self.displayedNews = displayedNews
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
         
     }
